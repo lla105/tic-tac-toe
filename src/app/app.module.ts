@@ -6,12 +6,11 @@ import { AppComponent } from './app.component';
 import { GameComponent } from './game/game.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule} from '@angular/material/button';
-import { GamelogicComponent } from './gamelogic/gamelogic.component'
+
 @NgModule({
   declarations: [
     AppComponent,
     GameComponent,
-    GamelogicComponent
   ],
   imports: [
     BrowserModule,

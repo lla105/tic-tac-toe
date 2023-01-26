@@ -23,6 +23,13 @@
                 height: 100px;
                 width: 100px;
                 border: 1px solid #fff;
+                &.player-one { //check &
+                        background: rgb(83,163,83);
+                }
+        
+                &.player-two {
+                        background: rgb(230,109,109);
+                }
             }
         }
     }
