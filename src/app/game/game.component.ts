@@ -26,20 +26,21 @@ export class GameComponent implements OnInit {
     if (this.game.gameStatus === 1) {
       const position = subfield.currentTarget.getAttribute('position'); // position of box
       const information = document.querySelector('.current-status');
+
       this.game.setField(position, this.game.currentTurn)
       const color = this.game.getPlayerColorClass();
       subfield.currentTarget.classList.add(color); // set class of that subfield
 
+      // await this.game.checkGameEndWinner();
+      await this.game.checkGameEndFull();
       this.game.changePlayer();
 
-    if (this.game.gameStatus === 1) {
-      const currentPlayer = 'Current turn: Player: ' + this.game.currentTurn;
-      if (information != null) {
-        information.innerHTML = currentPlayer;
+      if (this.game.gameStatus === 1) {
+        const currentPlayer = 'Current turn: Player: ' + this.game.currentTurn;
+        if (information != null) {
+          information.innerHTML = currentPlayer;
+        }
       }
     }
-    }
-
-    
   }
 }

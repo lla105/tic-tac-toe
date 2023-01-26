@@ -24,7 +24,8 @@ export class Gamelogic {
     }
 
     setField(position: number, value: number): void {
-        this.gameField[position] = value;
+        this.gameField[position] = value; // value is always be 1 or 2
+        console.log(this.gameField);
     }
 
     getPlayerColorClass(): string {
@@ -37,4 +38,24 @@ export class Gamelogic {
         this.currentTurn = (this.currentTurn === 2) ? 1 : 2;
         // if currentTurn=2, set it to 1. else if it's 1, set to 2.
     }
+
+    async checkGameEndFull(): Promise<boolean> {
+        let isFull = true;
+        if(this.gameField.includes(0)) {
+            isFull = false;
+        }
+        if(isFull) {
+            console.log('field is full');
+            this.gameEnds();
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    gameEnds(): void {
+        this.gameStatus = Status.STOP;
+    }
+    // this.game.checkGameEndWinner();
+
 }
