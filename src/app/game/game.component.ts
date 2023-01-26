@@ -32,7 +32,13 @@ export class GameComponent implements OnInit {
       subfield.currentTarget.classList.add(color); // set class of that subfield
 
       // await this.game.checkGameEndWinner();
-      await this.game.checkGameEndFull();
+      await this.game.checkGameEndWinner().then( (end: boolean) => {
+        if(this.game.gameStatus == 0 && end ) {
+          if (information != null) {
+            information.innerHTML = 'The winner is player number ' + this.game.currentTurn;
+          }
+        } 
+      });
       this.game.changePlayer();
 
       if (this.game.gameStatus === 1) {
